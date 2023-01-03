@@ -7,11 +7,11 @@
 The following Case Studies are presented in the book: 
 
 - Appendix      : Statistical Errors 
-- [Case Study 1  : Equation Of State Of The Lennard-Jones Fluid (Nvt)](CaseStudy_1)
+- [Case Study 1  : Equation Of State Of The Lennard-Jones Fluid (Nvt)](CaseStudy_01)
 - Case Study 2  : Importance Of Detailed Balance 
 - Case Study 3  : Why Count The Old Configuration Again? 
-- [Case Study 4  : Static Properties Of The Lennard-Jones Fluid](CaseStudy_4)
-- [Case Study 5  : Dynamic Properties Of The Lennard-Jones Fluid](CaseStudy_5)
+- [Case Study 4  : Static Properties Of The Lennard-Jones Fluid](CaseStudy_04)
+- [Case Study 5  : Dynamic Properties Of The Lennard-Jones Fluid](CaseStudy_05)
 - Case Study 6  : Algorithms To Calculate The Mean Square Displacement 
 - Case Study 7  : Equation Of State Of The Lennard-Jones Fluid (Npt) 
 - Case Study 8  : Phase Equilibria From Constant Pressure Simulations 
