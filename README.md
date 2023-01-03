@@ -74,7 +74,7 @@ from your use of the programs.
 
 ## Contact 
 If you have any suggestions or remarks, please send them to Berend
-Smit (berend.smit@epfl.ch).
+Smit (berend.smit@epfl.ch). 
 
 Berend Smit 
 Laboratory of molecular simulation (LSMO),
