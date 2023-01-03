@@ -16,7 +16,7 @@ def clean_all():
     """
     for makefile in get_all_targets():
         print(f"Cleaning {makefile}...")
-        subprocess.run(["make", makefile, "clean"], cwd=Path(makefile).parent)
+        subprocess.run(["make", "clean"], cwd=Path(makefile).parent)
 
 def build_all():
     """Build all makefiles.
@@ -26,7 +26,7 @@ def build_all():
     """
     for makefile in get_all_targets():
         print(f"Building {makefile}...")
-        subprocess.run(["make",  makefile], cwd=Path(makefile).parent)
+        subprocess.run(["make"], cwd=Path(makefile).parent)
 
 if __name__ == "__main__":
     fire.Fire()
