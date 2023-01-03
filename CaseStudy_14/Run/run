@@ -1,0 +1,28 @@
+#! /bin/csh -f
+
+cp lj.model        fort.25
+foreach rho (0.4 )
+  echo " --- rho ${rho} "  	>> out
+  echo " --- rho ${rho} "  
+  cat > fort.15  <<endofdata
+  ibeg  , nequil  , lmax   nsamp nghost
+   1      000       100   5        10
+  dr
+  0.09 
+  ndispl
+  50  
+npart temp rho
+100   2.0  ${rho} 
+endofdata
+ cp lj.res            fort.11
+ cp lj.model          fort.25
+ time nice ../Source/Mc_nvt  	>>& out 
+cp fort.21            lj.res
+ cp fort.66           lj.prt
+ #perform block analysis
+ cp lj.prth fort.31
+  mv  lj.prt fort.32
+ ../Block/block  	 >>& out 
+rm fort.*
+end
+exit

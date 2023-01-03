@@ -1,0 +1,40 @@
+#! /bin/csh -f
+#
+# Lrecoil = Use Rg Or Cbmc
+# Lattice = Generate Fromlattice Or Read From Chain.Res
+# Ncycle  = Numberof Cycles
+# Nrota   = Number Of Chain Rotations
+# Ndosp   = Numberof Displacements
+# Ncbmc   = Number Of Cbmc Moves
+# Ell     = Chainlength
+# Nchain  = Numberof Chains
+# Box     = Boxsize
+# Temp    = Temperature
+# Nchoi   = Number Of Trial Directions
+# Ncoil   = Recoil Length
+# Rc      = Cut-Off Radius
+# Dx      = Maximum Displacement
+# Drot    = Maximum Rotation Angle
+# Bondl   = Bondlength
+# Thetat  = Angle I-J-K
+
+cat > input  <<endofdata
+Lrecoil  Lattice   Ncycle
+.True.   .True.    100   
+Nrota    Ndisp     Ncbmc
+10       10        10      
+Ell      Nchain    Box     Temp
+15       20        10.0    6.0d0
+D_Sec    Ncoil
+3        5 
+Rc       Dx        Drot  
+2.5d0    1.0d0     1.0d0 
+Bondl    Thetat
+1.0d0    2.0d0
+endofdata
+
+../Source/recoil > out
+
+rm input
+
+exit

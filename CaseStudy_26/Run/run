@@ -1,0 +1,60 @@
+#! /bin/csh -f
+
+cp lj.model        fort.25
+foreach npart (2000 )
+foreach rho (0.7 )
+echo "---equilibration step"
+  echo " --- rho ${rho} "  	>> out
+  echo " --- Npart ${npart} "  	>> out
+  echo " --- rho ${rho} "  
+  cat > fort.15  <<endofdata
+  ibeg  , nequil  , lmax   nsamp  iseed
+   0      10        0     2       3467
+  dr
+  0.09
+  ndispl
+  10   
+  npart temp rho
+  ${npart}   2.0  ${rho}
+  neighlist verletlist
+  .false.    .false.
+  rv
+  3.0 
+endofdata
+# cp lj.res          	fort.11
+ time  ../Source/mc_nvtNL     	>>& out 
+ cp fort.21         	lj.res
+
+echo " ----production "
+foreach list1 (.false. .true.  )
+foreach list2 ( .false. .true. )
+  cp lj.res fort.21
+  echo " --- rho ${rho} "  
+  cat > fort.15  <<endofdata
+  ibeg  , nequil  , lmax   nsamp iseed
+   1      000       20   1         123333
+  dr
+  0.09
+  ndispl
+  10   
+  npart temp rho
+  ${npart}   2.0  ${rho}
+  neighlist verletlist
+  ${list1}    ${list2}
+  rv
+  3.0 
+endofdata
+ cp lj.res          fort.11
+ time   ../Source/mc_nvtNL     	>>& out 
+ #cp fort.21         lj.res
+ cp fort.66         lj.prt
+ #perform block analysis
+  cp lj.prth fort.31
+  mv  lj.prt fort.32
+  ../Block/block  		>>& out 
+end
+end
+end
+end
+rm fort.*
+exit

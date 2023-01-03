@@ -1,0 +1,28 @@
+#! /bin/csh -f
+
+cp 	lj.model        	fort.25
+foreach temp (1.15)
+  echo " --- temp ${temp} "  	
+  echo " --- temp ${temp} "  		>> out
+  cat > fort.15  <<endofdata
+  ibeg  , nequil  , lmax   nsamp  iseed
+   0      100      500   2        78356
+  dr      vmax  succ
+  0.09    0.01  50.
+  ndispl  nvol 
+  100      20  
+npart temp rho      p     struc
+108   ${temp} 0.7   3.0   'fcc'
+endofdata
+ cp 	lj.res          	fort.11
+ time  ../Source/mc_npt   		>>& out 
+ cp 	fort.21         	lj.res
+ cp 	fort.66         	lj.prt
+ #perform block analysis
+  cp 	lj.prth 		fort.31
+  mv  	lj.prt 			fort.32
+  ../Block/block  		>>& out 
+ rm fort.*
+end
+exit
+

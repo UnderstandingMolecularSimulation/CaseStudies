@@ -1,0 +1,14 @@
+#! /bin/csh -f
+
+cat > input <<endofdata
+Nstep Ninit     Ladvanced
+100   5         .True.
+Ell   Kv        Beta       Nchoi
+5     400.0d0   1.5d0      3
+endofdata
+
+time ../Source/cbmc > outt
+
+rm input
+
+exit

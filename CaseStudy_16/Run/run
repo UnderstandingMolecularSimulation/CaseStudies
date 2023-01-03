@@ -1,0 +1,30 @@
+#! /bin/csh -f
+
+foreach temp (0.8 )
+  echo " --- temp ${temp} "  	
+  echo " --- temp ${temp} "  	>> out
+  cat > fort.15  <<endofdata
+  ibeg  , nequil  , lmax   nsamp  iseed
+   0      100      200     1    48573478
+  dr      vmax  succ
+  0.09    0.01   50.
+  ndispl  nvol nswap
+  200      2    20
+npart temp rho      p  lattice
+256   ${temp} .31   32.2    'cubic'
+rv
+3.0 
+endofdata
+ cp lj.res			fort.11
+  cp lj.model		fort.25
+ time  ../Source/Gibbs  >>&	out 
+ cp fort.21		lj.res
+ mv fort.66		lj.prt
+ cat fort.44     >>		lj.xy
+ #perform block analysis
+  cp lj.prth		fort.31
+  mv  lj.prt		fort.32
+ ../Block/block    >>	out 
+ rm fort.*
+end
+exit

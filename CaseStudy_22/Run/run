@@ -1,0 +1,45 @@
+#! /bin/csh -f
+#
+# Box      = Boxlength
+# Npart    = Number Of Particles
+# Nstep    = Number Of Timesteps
+# Ninit    = Number Of Initialization Steps
+# Temp     = Temperature
+# Tstep    = Timestep For Integration
+# Bondl    = Bondlength
+# Bondkb   = Force Constant
+# Nrespa   = Number Of Respa Steps
+# Lrespa   = Do We Use Respa ?
+# Lcons    = Do We Use Constraints ?
+# Linit    = Do We Start From Scratch ? 
+
+set BOX    = 7.0
+set RCUT   = 3.0
+set RCUT2  = 1.7
+set RVER   = 0.5
+set LAMBDA = 0.3
+set NPART  = 250
+set NSTEP  = 50000
+set NINIT  = 10000
+set TEMP   = 3.0
+set TSTEP  = 0.0001
+set BONDL  = 1.0
+set BONDKB = 50000.0
+set NRESPA = 5
+set LRESPA = .true.
+set LCONS  = .false.
+set LINIT  = .false.
+
+cat > fort.21 <<endofdata
+$BOX   $NPART  $NSTEP  $TEMP   $TSTEP $NINIT
+$BONDL $BONDKB $NRESPA $LRESPA $LCONS $LINIT
+$RCUT  $RCUT2  $LAMBDA $RVER
+endofdata
+
+cp equil.res fort.22
+
+../Source/md > outt
+
+cp fort.23 equil.res
+ 
+exit

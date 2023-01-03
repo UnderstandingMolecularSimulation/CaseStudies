@@ -1,0 +1,33 @@
+#! /bin/csh -f
+#
+# Ncycle    = Number Of Cycles
+# Ninit     = Number Of Initialization Cycles
+# Nslice    = Pathlength
+# Ldisk     = Read Configuration From Disk
+# Pshift    = Probability To Select Of Shifting Move
+# Lumbrella = Do We Use Umbrella Sampling
+# Lmin      = Minimum Order Parameter 
+# Lmax      = Maximum Order Parameter
+# Radius    = Size Of Regions A And B
+# Temp      = Temperatue
+# Deltap    = Momentum Change
+# Tstep     = Timestep In Md Integration
+
+set ncycle    = 20000
+set ninit     = 10000
+set nslice    = 1500
+
+cat > input <<endofdata
+Ldisk        Pshift       Radius        
+.True.       0.5d0        0.7d0        
+Ncycle       Ninit        Nslice 
+$ncycle      $ninit       $nslice  
+Lumbrella    Lmin         Lmax
+.False.      -1.0d0        0.25d0
+Temp         Deltap       Tstep
+0.1d0        0.30d0       0.002d0
+endofdata
+
+../Source/path > outt
+
+exit

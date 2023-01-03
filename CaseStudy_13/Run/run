@@ -1,0 +1,27 @@
+#! /bin/csh -f
+
+  echo " --- start "  	
+  cat > fort.15  <<endofdata
+x ux
+1.d0  1.d0
+delt tmax  isamp
+0.001 5  100
+constant T
+.true.   1.
+methT  (=1 Andersen =2 Nose-Hoover)
+2
+Andersen's method 
+ncoll
+100
+Nose-Hoover method
+fh  m
+1  2
+1. 1. 1. 1. 1.
+ 
+endofdata
+
+ time  ../Source/Harm    >>& out
+ mv fort.21  harm.conf
+ rm fort.15
+
+exit

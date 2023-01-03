@@ -1,0 +1,35 @@
+#! /bin/csh -f
+
+set npart = 100
+cp lj.model        fort.25
+foreach rho ( 0.80 )
+# to determine the chemical potential two runs are required
+foreach npart ( 108 109 )
+  echo " --- rho ${rho} "  	>> out.${rho}
+  echo " --- Npart ${npart} "  	>> out.${rho}
+  echo " --- rho ${rho} "  
+  cat > fort.15  <<endofdata
+  ibeg  , nequil  , lmax   nsamp   nghost
+   0      0050     100   1        50
+  dr
+  0.09 
+  ndispl
+  50  
+npart temp rho
+${npart}   1.2  ${rho} 
+endofdata
+ cp lj.res          fort.11
+ cp lj.model          fort.25
+ time nice ../Source/Mc_nvt 	 >>& out 
+cp fort.21         lj.res
+ cp fort.66         lj.prt
+ cp fort.77         lj.fh.${npart}.${rho}
+ cp fort.78         lj.gh.${npart}.${rho}
+ #perform block analysis
+ cp lj.prth fort.31
+  mv  lj.prt fort.32
+ ../Block/block  	 >>& out
+rm fort.*
+end
+end
+exit

@@ -1,0 +1,44 @@
+#! /bin/csh -f
+#
+# Dpd Simulations
+#
+# Nstep    = Total Number Of Steps
+# Nprint   = Output Frequency
+# Ninit    = How Many Steps Do We Scale The Temperature ?
+# Boxlx    = Boxsize In X-Direction
+# Boxly    = Boxsize In Y-Direction
+# Boxlz    = Boxsize In Z-Direction
+# Temp     = Temperature
+# Bondkb   = Spring Constant
+# Sigma    = Sigma
+# Timestep = Timestep Of Integration E.O.M.
+# Linit    = Do We Generate A New Configuration
+#            (Otherwise, Read From Disk)
+# Ninact   = How Many Pair-Pair Interactions
+# Niter    = Number Of Iterations
+# Mymodel  = Which Model ?
+
+set mymodel = 1
+
+cat > Input <<endofdata
+Nstep    Nprint   Ninit
+1000     100      2
+Boxlx    Bolxly   Boxlz   Temp
+10.0d0   10.0d0   20.0d0  0.45d0
+Bondkb   Sigma    Timestep
+2.0d0    1.5d0    0.03d0
+Linit    Ninact   Niter
+.True.   3        5
+Interaction 1-1
+1   1   25.0d0
+Interaction 1-2
+1   2   30.0d0
+Interaction 2-2
+2   2   25.0d0
+endofdata
+
+cp model${mymodel}.dat Molec
+
+../Source/dpd > outt
+
+exit

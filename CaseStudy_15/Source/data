@@ -1,0 +1,8 @@
+  ibeg  , nequil  , lmax   nsamp
+   1  0000           100   10
+  dr
+  0.0255 
+  ndispl
+  100   
+npart temp rho
+108     5.  0.55 

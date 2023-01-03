@@ -1,0 +1,31 @@
+#! /bin/csh -f
+
+cp lj.model        fort.25
+foreach pid  (0.016 )
+  echo " --- pid ${pid} "  	
+  echo " --- pid ${pid} "  	>> out
+  cat > fort.15  <<endofdata
+  ibeg  , nequil  , lmax   nsamp iseed
+   0      100      200   2      68324
+  dr      
+  0.09   
+  ndispl  nexch
+  100      10
+npart temp rho      pid
+50     0.9 0.6    ${pid}
+rv
+3.0 
+endofdata
+ cp lj.res          fort.11
+ time  ../Source/mc_grand     	>>& out 
+cp fort.21         lj.res
+ mv fort.66         lj.prt
+ #perform block analysis
+  cp lj.prth fort.31
+  mv  lj.prt fort.32
+  ../Block/block   		>>& out 
+  rm fort.*
+end
+exit
+
+

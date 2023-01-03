@@ -1,0 +1,18 @@
+#! /bin/csh -f
+#
+# Nstep = Number Of Cycles
+# Ptemp = Prob. Swap Moves
+# Ntemp = Numberof Systems
+
+cat > fort.21 <<endofdata
+Nstep    Ptemp    Ntemp
+2000     0.1d0    3
+Temperatures Of The Subsystems (1..Ntemp)
+0.05d0 0.3d0 2.0d0
+endofdata
+
+time ../Source/tempering > out
+
+rm fort.*
+
+exit

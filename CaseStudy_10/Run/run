@@ -1,0 +1,29 @@
+#! /bin/csh -f
+
+foreach nu (10.  )
+  echo " --- nu ${nu} "  	
+  echo " --- nu ${nu} "  	>> out
+  cat > fort.15  <<endofdata
+  ibeg  , delt  tmax  tequil nsamp 
+   0     0.001  .1   .00    1 
+npart tempinit rho      rcp  iseed
+256  1.0   0.75   2.5  123456
+ nu temp
+ ${nu}  1.
+iout gr  iout2  ivacf  t0vacf t0stress iout3
+33   5000   34     1      10       1000        35
+endofdata
+ cp lj.res          fort.11
+ time  ../Source/MD   >> out
+ cp fort.21         lj.res
+ mv fort.66         lj.prt
+  mv fort.34        lj.vacf.${nu}
+ mv fort.37         lj.dVelnu${nu}
+
+ #perform block analysis
+  cp lj.prth fort.31
+  mv  lj.prt fort.32
+ ../Block/block   >>  out 
+ rm fort.*
+end
+exit

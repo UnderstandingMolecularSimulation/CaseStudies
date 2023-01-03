@@ -1,0 +1,37 @@
+#! /bin/csh -f
+
+foreach temp (0.728)
+  echo " --- temp ${temp} "  	
+  echo " --- temp ${temp} "  	>> out
+  cat > fort.15  <<endofdata
+  ibeg  , delt  tmax  tequil nsamp 
+   1     0.001  5.   0.00  1 
+npart temp rho      rcp  iseed
+108   ${temp} 0.8442   2.5  123456
+ scale  temp
+ .true.  0.728
+iout gr     iout2  ivacf  t0vacf    t0stress       iout3  iout4
+33   500000   34     1      100       1000000        35  36
+samp1    samp2   tdifmax
+.true.  .false.   100
+endofdata
+ cp lj.res          fort.11
+ time  ../Source/MD  >> out
+ cp fort.21         lj.res
+ mv fort.66         lj.prt
+ mv fort.34         lj.vacf
+ #perform block analysis
+  cp lj.prth fort.31
+  mv  lj.prt fort.32
+ ../Block/block    >>  out 
+ rm fort.*
+end
+exit
+
+
+
+
+
+
+
+

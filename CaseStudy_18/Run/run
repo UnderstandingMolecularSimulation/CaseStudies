@@ -1,0 +1,53 @@
+#! /bin/csh -f
+
+set press = .0d0
+#--- INPUT-parameters
+  foreach box (8.6 )
+     echo " >>>>>>>> Equilibration  <<<<<<<<<<  " 
+     echo " >>>>>>>> Equilibration  <<<<<<<<<<  " >> out
+     echo " Box    = ${box} "    >> out
+     echo " Box    = ${box} " 
+     cat > fort.15  <<endofdata
+lattice	ncycle
+.true.  10
+ell,   npart,	box,  temp  P
+8   50          $box   1.9   $press
+kv     l0       k    Rc   dx  dv
+400   1.0      6   2.5  0.01   0.1
+ndisp ncbmc nvol isamp
+20     20   10     1
+endofdata
+  cp chain.res 		fort.11
+  ../Source/Cbmc   >>& out
+  mv fort.66         	chain.prt
+  mv  fort.21         	chain.res
+ #perform block analysis
+ cp chain.prth 		fort.31
+  mv chain.prt 		fort.32
+   ../Block/block  	   >>& out 
+ rm fort.*
+     echo " >>>>>>>> Production  <<<<<<<<<<  " 
+     echo " >>>>>>>> Production  <<<<<<<<<<  " >> out
+     echo " Box    = ${box} "    >> out
+     echo " Box    = ${box} " 
+     cat > fort.15  <<endofdata
+lattice	ncycle
+.false.  10
+ell,   npart,	box,  temp    P
+8   50          $box   1.9     $press
+kv     l0       k    Rc   dx  dv
+400   1.0      6   2.5  0.1   0.1
+ndisp ncbmc nvol isamp
+20     20   10     1
+endofdata
+  cp chain.res 		fort.11
+  time  ../Source/Cbmc   >>& out
+  mv fort.66         	chain.prt
+  mv  fort.21         	chain.res
+ #perform block analysis
+ cp chain.prth 		fort.31
+  mv chain.prt 		fort.32
+  ../Block/block  	 >>& out 
+ rm fort.*
+end
+exit

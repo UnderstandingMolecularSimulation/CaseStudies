@@ -1,0 +1,29 @@
+#! /bin/csh -f
+
+foreach lambda ( 10. )
+  echo "#### lambda ${lambda}  ###"
+  echo "#### lambda ${lambda}  ###" >> out
+  cat > fort.15  <<endofdata
+  ibeg  , nequil  , lmax   nsamp   iseed
+   1      00      100     5     10325476
+  dr      succ
+  0.01     50.d0
+  ndispl  
+  400      
+npart temp rho     
+ 432  1.d0 1.041   
+ nx ny nz fcc    bcc        cmc
+ 6  6  12  .false. .true.   .true.
+neighlist  lambda
+.true.    ${lambda}
+endofdata
+ cp	hs.res          fort.11
+ time  ../Source/mc_nvt   	>>& out 
+ mv	fort.66         hs.prt
+#perform block analysis
+  cp	hs.prth		fort.31
+  mv	hs.prt		fort.32
+ ../Block/block      	>>& out
+ rm fort.*
+end 
+exit

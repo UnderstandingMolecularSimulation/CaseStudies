@@ -1,0 +1,18 @@
+#! /bin/csh -f
+
+set NCYCLE  = 10
+set NSTEP   = 5000
+set TEMP    = 0.2d0
+set TSTEP   = 0.003d0
+set QSTAR   = 0.5d0
+
+cat > fort.21 <<endofdata
+$NCYCLE $NSTEP  $TSTEP $TEMP $QSTAR
+endofdata
+
+time ../Source/barrier2 > out
+
+mv fort.27 kt.t  
+rm fort.*
+
+exit
