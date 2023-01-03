@@ -77,16 +77,17 @@ If you have any suggestions or remarks, please send them to Berend
 Smit (bsmit@science.uva.nl).
 
 Berend Smit 
-Department of Chemical Engineering 
-University of Amsterdam 
-Nieuwe Achtergracht 166 
-1018 WV Amsterdam, The Netherlands 
-Email: bsmit@science.uva.nl 
-Homepage: http://molsim.chem.uva.nl
+Laboratory of molecular simulation (LSMO),
+Institut des Sciences et Ingénierie Chimiques, Valais
+Ecole Polytechnique Fédérale de Lausanne (EPFL), Rue de l’Industrie 17,
+CH-1951 Sion, Switzerland
+Email: berend.smit@epfl.ch 
+Homepage: https://www.epfl.ch/labs/lsmo/
 
 Daan Frenkel
-FOM Institute for Atomic and Molecular Physics
-Kruislaan 407 
-1098 SJ Amsterdam
-Email: frenkel@amolf.nl 
-Homepage: http://www.amolf.nl/research/computational_physics/index.html
+Department of Chemistry	
+University of Cambridge
+Lensfield Road		
+Cambridge CB2 1EW, UK
+e-mail: df246@cam.ac.uk
+Homepage: https://www.ch.cam.ac.uk/person/df246
