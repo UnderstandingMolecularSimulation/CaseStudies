@@ -20,6 +20,8 @@ INSTALL	      = install
 
 LD	      = f77
 
+FC = gfortran
+
 LDFLAGS	      = $(COMPFLAGS)
 
 LIBS	      =
