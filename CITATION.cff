@@ -1,11 +1,11 @@
 message: "If you use this software, please cite it as below."
 authors:
-  - family-names: Smit
-    given-names: Berend
-    orcid: https://orcid.org/0000-0003-4653-8562
-    - family-names: Frenkel
-    given-names: Daan
-    orcid: https://orcid.org/0000-0002-6362-2021
-title:  Understanding Molecular Simulations: from Algorithms to Applications, 2nd ed. (Academic Press, San Diego, 2002)
+  - family-names: "Smit"
+    given-names: "Berend"
+    orcid: "https://orcid.org/0000-0003-4653-8562"
+    - family-names: "Frenkel"
+    given-names: "Daan"
+    orcid: "https://orcid.org/0000-0002-6362-2021"
+title:  "Understanding Molecular Simulations: from Algorithms to Applications, 2nd ed. (Academic Press, San Diego, 2002)"
 version: v1.0
 date-released: 2023-01-04
