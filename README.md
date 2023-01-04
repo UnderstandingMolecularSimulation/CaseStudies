@@ -57,7 +57,7 @@ Case Studies 19,20,21,22,23, and 24 have been written by Thijs J.H. Vlugt; Case 
 27 written by Thijs J.H. Vlugt and Maddalena Venturoli. 
 <!-- Additional
 material about molecular simulations can be found on the web:
-http://molsim.chem.uva.nl/course/material.html>
+http://molsim.chem.uva.nl/course/material.html -->
 
 
 
