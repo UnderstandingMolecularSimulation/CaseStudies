@@ -53,11 +53,11 @@ changed into ran_uniform_ (see Tools/ran_uniform_SGI.c).
 
 
 ## Credits 
-Casestudies
-19,20,21,22,23,24 have been written by Thijs J.H. Vlugt; Casestudy
-27 written by Thijs J.H. Vlugt and Maddalena Venturoli. Additional
+Case Studies 19,20,21,22,23, and 24 have been written by Thijs J.H. Vlugt; Case Study
+27 written by Thijs J.H. Vlugt and Maddalena Venturoli. 
+<!-- Additional
 material about molecular simulations can be found on the web:
-http://molsim.chem.uva.nl/course/material.html
+http://molsim.chem.uva.nl/course/material.html>
 
 
 
