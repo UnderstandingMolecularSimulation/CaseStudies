@@ -15,10 +15,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Install Fortran compiler ubuntu
-        if: ${{ matrix.os }} == 'ubuntu-latest'
+        if: matrix.os  == 'ubuntu-latest'
         run: sudo apt-get install gfortran
       - name: Install Fortran compiler macos
-        if: ${{ matrix.os }} == 'macos-latest'
+        if: matrix.os == 'macos-latest'
         run: brew install gcc gfortran
       - name: Install Python
         uses: actions/setup-python@v1
