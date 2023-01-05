@@ -4,7 +4,7 @@ FFLAGS        =	$(FCOMPFLAGS)
 LDFLAGS       =	$(FCOMPFLAGS)
 
 LD            =	f77
-FC            =	f77
+FC     = gfortran
 CC            = cc
 
 MAKEFILE      =	Makefile
