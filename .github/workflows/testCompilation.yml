@@ -11,8 +11,12 @@ jobs:
     runs-on: [ubuntu-latest, macos-latest]
     steps:
       - uses: actions/checkout@v2
-      - name: Install Fortran compiler
+      - name: Install Fortran compiler ubuntu
+        if: runner.os == 'Linux'
         run: sudo apt-get install gfortran
+      - name: Install Fortran compiler macos
+        if: runner.os == 'macOS'
+        run: brew install gcc gfortran
       - name: Install Python
         uses: actions/setup-python@v1
         with:
