@@ -8,14 +8,17 @@ on: [push, pull_request]
 
 jobs:
   build:
-    runs-on: [ubuntu-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [macos-latest, ubuntu-latest]
     steps:
       - uses: actions/checkout@v2
       - name: Install Fortran compiler ubuntu
-        if: runner.os == 'Linux'
+        if: ${{ matrix.os }} == 'ubuntu-latest'
         run: sudo apt-get install gfortran
       - name: Install Fortran compiler macos
-        if: runner.os == 'macOS'
+        if: ${{ matrix.os }} == 'macos-latest'
         run: brew install gcc gfortran
       - name: Install Python
         uses: actions/setup-python@v1
