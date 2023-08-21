@@ -4,7 +4,11 @@
 
 name: Test Compilation
 
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - main
+  pull-request:
 
 jobs:
   build:
