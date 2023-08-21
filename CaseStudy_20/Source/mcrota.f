@@ -17,7 +17,7 @@ Cccccccccccccccccccccccccccccc
      
       If(Ell.Le.1) Return
 
-      Ichain = Idint(Ran_Uniform()*Dble(Nchain)) + 1
+      Ichain = Idint(RAND()*Dble(Nchain)) + 1
       Move   = Move + 1.0d0
       Rxorig = 0.0d0
       Ryorig = 0.0d0
@@ -44,8 +44,8 @@ C     Center Of Mass Is Used As Origin For Rotation Of Units;     C
 C     Set Up The Rotation Marix                                   C
 Ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
  
-      Deltv  = 3.0d0*Ran_Uniform()
-      Dgamma = Dx*(Ran_Uniform()-0.5d0)
+      Deltv  = 3.0d0*RAND()
+      Dgamma = Dx*(RAND()-0.5d0)
       Cosdg  = Dcos(Dgamma)
       Sindg  = Dsin(Dgamma)
       Rx     = 0.0d0
@@ -112,7 +112,7 @@ Cccccccccccccccccccccccccccccc
 C     Check For Acceptance   C
 Cccccccccccccccccccccccccccccc
 
-      If (Ran_Uniform().Lt.Dexp(-Beta*(Ennew-Enold))) Then
+      If (RAND().Lt.Dexp(-Beta*(Ennew-Enold))) Then
          Acc   = Acc  + 1.0d0
          Etot  = Etot + Ennew - Enold
 

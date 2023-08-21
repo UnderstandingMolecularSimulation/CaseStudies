@@ -18,7 +18,7 @@ Cccccccccccccccccccccccc
 C     Select A Chain   C
 Cccccccccccccccccccccccc
 
-      Ichain = Idint(Ran_Uniform()*Dble(Nchain)) + 1
+      Ichain = Idint(RAND()*Dble(Nchain)) + 1
       Move   = Move + 1.0d0
       Lready = .False.
       Ennew  = 0.0d0
@@ -89,7 +89,7 @@ Ccccccccccccccccccccccccccccccccccccccccccc
          Call Echain(Xnn,Ynn,Znn,Ichain,-1,Enold)
          Call Echain(Xn,Yn,Zn,Ichain,-1,Ennew)
 
-         If(Ran_Uniform().Lt.((Wn/Wo)*Dexp(-Beta*(Ennew-Enold)))) 
+         If(RAND().Lt.((Wn/Wo)*Dexp(-Beta*(Ennew-Enold)))) 
      &        Lready = .True.
       
       Else
@@ -98,7 +98,7 @@ Cccccccccccccccccccccccccccccc
 C     Cbmc Acceptance Rule   C
 Cccccccccccccccccccccccccccccc
 
-         If(Ran_Uniform().Lt.(Wn/Wo)) Lready = .True.
+         If(RAND().Lt.(Wn/Wo)) Lready = .True.
       Endif
 
       If (Lready) Then

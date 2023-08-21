@@ -65,9 +65,9 @@ Cccccccccccccccccccccccccccccccccccccccccccccccccc
          Yt(1) = Yn(1)
          Zt(1) = Zn(1)  
       Else
-         Xt(1) = Ran_Uniform()*Box
-         Yt(1) = Ran_Uniform()*Box
-         Zt(1) = Ran_Uniform()*Box
+         Xt(1) = RAND()*Box
+         Yt(1) = RAND()*Box
+         Zt(1) = RAND()*Box
       Endif
          
 Ccccccccccccccccccccccccc

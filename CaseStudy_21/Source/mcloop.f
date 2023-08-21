@@ -46,9 +46,9 @@ C     For This Temperature, Select A Move        C
 C     At Random..                                C
 Cccccccccccccccccccccccccccccccccccccccccccccccccc
 
-               Itemp = 1 + Idint(Dble(Ntemp)*Ran_Uniform())
+               Itemp = 1 + Idint(Dble(Ntemp)*RAND())
 
-               If(Ran_Uniform().Lt.Ptemp) Then
+               If(RAND().Lt.Ptemp) Then
 
 Cccccccccccccccccccccccccccccccccccccc
 C     Swap Move                      C
@@ -59,7 +59,7 @@ Cccccccccccccccccccccccccccccccccccccc
 
                      Swap2(Itemp) = Swap2(Itemp) + 1.0d0
 
-                     If(Ran_Uniform().Lt.
+                     If(RAND().Lt.
      &                    Dexp((Beta(Itemp)-Beta(Itemp-1))*
      &                    (Uold(Itemp)-Uold(Itemp-1)))) 
      &                    Then
@@ -83,14 +83,14 @@ C     Displacement        C
 Ccccccccccccccccccccccccccc
 
                   Xnew = Xold(Itemp)  + 
-     &                 0.2d0*(Ran_Uniform()-0.5d0)
+     &                 0.2d0*(RAND()-0.5d0)
 
                   Move2(Itemp) = Move2(Itemp) + 1.0d0
 
                   Call Force(Xnew,Unew,Lok)
 
                   If(Lok.And.
-     &                 (Ran_Uniform().Lt.
+     &                 (RAND().Lt.
      &                 Dexp(-Beta(Itemp)*
      &                 (Unew-Uold(Itemp))))) Then
 

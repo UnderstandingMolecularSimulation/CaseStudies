@@ -20,9 +20,9 @@ Cccccccccccccccccccccccccccccccccccccccccccc
 
       Shift2  = Shift2 + 1.0d0
       L_Ready = .False.
-      Ishift  = 1 + Idint(Ran_Uniform()*Dble(Nslice)*0.2d0)
+      Ishift  = 1 + Idint(RAND()*Dble(Nslice)*0.2d0)
 
-      If(Ran_Uniform().Lt.0.5d0) Ishift = -Ishift
+      If(RAND().Lt.0.5d0) Ishift = -Ishift
       
 Cccccccccccccccccccccccccccccccccccc
 C     Shift The Path               C
@@ -80,7 +80,7 @@ Ccccccccccccccccccccccccccccccccccccccccccccccccccc
       
       If(.Not.La(1)) Return
 
-      If(Ran_Uniform().Gt.Dexp(-Beta*(Eetra(1)-Eeold(1)))) 
+      If(RAND().Gt.Dexp(-Beta*(Eetra(1)-Eeold(1)))) 
      &     Return
 
 Cccccccccccccccccccccccccc

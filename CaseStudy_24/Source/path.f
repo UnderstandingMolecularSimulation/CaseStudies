@@ -34,16 +34,16 @@ Cccccccccccccccccccccccccc
       
       Call Genrand(M1)
 
-      J = 10 + Idint(Ran_Uniform()*1000.0d0)
+      J = 10 + Idint(RAND()*1000.0d0)
 
       Do I=1,J
-         M1 = Ran_Uniform()
+         M1 = RAND()
       Enddo
 
       Write(6,*) 'Random Number                          : ',
-     &     Ran_Uniform()
+     &     RAND()
       Write(6,*) 'Random Number                          : ',
-     &     Ran_Uniform()
+     &     RAND()
       Write(6,*)
       Write(6,*)
       Write(6,*)

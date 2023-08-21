@@ -3,8 +3,8 @@ FCOMPFLAGS    =	-O
 FFLAGS        =	$(FCOMPFLAGS)
 LDFLAGS       =	$(FCOMPFLAGS)
 
-LD            =	f77
-FC            =	f77
+LD = gfortran
+FC = gfortran
 CC            = cc
 
 MAKEFILE      =	Makefile

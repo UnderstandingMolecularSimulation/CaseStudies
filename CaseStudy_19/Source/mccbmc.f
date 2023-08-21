@@ -29,7 +29,7 @@ Ccccccccccccccccccccccccccccccccccc
       If(Ladvanced) Then
          Lready = .True.
       Else
-         Lready = (Ran_Uniform().Lt.(Wn/Wo))
+         Lready = (RAND().Lt.(Wn/Wo))
       Endif
 
       If (Lready) Then

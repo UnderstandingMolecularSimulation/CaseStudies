@@ -14,8 +14,8 @@ Ccccccccccccccccccccccccccccccccccc
 C     First: Vector On A Sphere   C
 Ccccccccccccccccccccccccccccccccccc
 
- 1    Bx    = 1.0d0 - 2.0d0*Ran_Uniform()
-      By    = 1.0d0 - 2.0d0*Ran_Uniform()
+ 1    Bx    = 1.0d0 - 2.0d0*RAND()
+      By    = 1.0d0 - 2.0d0*RAND()
       Ransq = Bx*Bx + By*By
       
       If(Ransq.Ge.1.0d0) Goto 1
@@ -33,16 +33,16 @@ Ccccccccccccccccccccccccccccc
       Bondnorm  = 1.0d0/(1.5d0**2)
 
       If(Ladvanced) Then
- 2       Bondl = 0.5d0 + Ran_Uniform()
+ 2       Bondl = 0.5d0 + RAND()
          
-         If(Ran_Uniform().Gt.
+         If(RAND().Gt.
      &        (Bondl*Bondl*Bondnorm*
      &        Dexp(-Beta*0.5d0*Kv*
      &        ((Bondl-1.0d0)**2)))) Goto 2
       Else
- 3       Bondl = 0.5d0 + Ran_Uniform()
+ 3       Bondl = 0.5d0 + RAND()
          
-         If(Ran_Uniform().Gt.(Bondl*Bondl*Bondnorm)) Goto 3
+         If(RAND().Gt.(Bondl*Bondl*Bondnorm)) Goto 3
       Endif
 
       Bondl = Bondl/Dsqrt(Bx*Bx + By*By + Bz*Bz)

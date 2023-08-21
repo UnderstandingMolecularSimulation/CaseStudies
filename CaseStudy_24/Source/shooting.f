@@ -37,7 +37,7 @@ Cccccccccccccccccccccccccccccccccccccccccccccccccc
                           
       Else
 
-         Islice = 1 + Idint(Ran_Uniform()*Dble(Nslice))
+         Islice = 1 + Idint(RAND()*Dble(Nslice))
          Shootb = Shootb + 1.0d0
          Shoot2 = Shoot2 + 1.0d0
 
@@ -83,7 +83,7 @@ C           The New                                       C
 Ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
 
       If(.Not.Linit) Then
-         If(Ran_Uniform().Gt.Dexp(-Beta*(Eetra(1)-Eeold(1)))) Return
+         If(RAND().Gt.Dexp(-Beta*(Eetra(1)-Eeold(1)))) Return
       Endif
 
 Cccccccccccccccccccccccccccc

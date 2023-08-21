@@ -25,7 +25,7 @@ Cccccccccccccccccccccccccccccccccccccccc
 
       Do I=1,Ntemp
          Beta(I) = 1.0d0/Temp(I)
-         Xold(I) = -1.25d0 + 0.01d0*(Ran_Uniform()-0.5d0)
+         Xold(I) = -1.25d0 + 0.01d0*(RAND()-0.5d0)
 
          Call Force(Xold(I),U,L)
 

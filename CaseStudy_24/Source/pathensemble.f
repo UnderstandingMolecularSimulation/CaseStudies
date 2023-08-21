@@ -121,8 +121,8 @@ Cccccccccccccccccccccccccccc
 C     Initial Coordinates  C
 Cccccccccccccccccccccccccccc
       
- 100     Rxx           = 0.5d0*(Ran_Uniform()-0.5d0)
-         Ryy           = 3.0d0*(Ran_Uniform()-0.5d0)
+ 100     Rxx           = 0.5d0*(RAND()-0.5d0)
+         Ryy           = 3.0d0*(RAND()-0.5d0)
          Islice        = Nslice/2
          Xxold(Islice) = Rxx
          Yyold(Islice) = Ryy
@@ -210,7 +210,7 @@ C     Choose A Trialmove    C
 C     Choose A System       C
 Ccccccccccccccccccccccccccccc
 
-         Rm  = Ran_Uniform()
+         Rm  = RAND()
          Mm1 = Ttime()
 
 Cccccccccccccccccccccccccccc

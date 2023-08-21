@@ -4,15 +4,26 @@
 
 name: Test Compilation
 
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - main
+  pull_request:
 
 jobs:
   build:
-    runs-on: [ubuntu-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [macos-latest, ubuntu-latest]
     steps:
       - uses: actions/checkout@v2
-      - name: Install Fortran compiler
+      - name: Install Fortran compiler ubuntu
+        if: matrix.os  == 'ubuntu-latest'
         run: sudo apt-get install gfortran
+      - name: Install Fortran compiler macos
+        if: matrix.os == 'macos-latest'
+        run: brew reinstall gcc
       - name: Install Python
         uses: actions/setup-python@v1
         with:
@@ -20,6 +31,6 @@ jobs:
       - name: Install Python dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r .github/workflows/utils/requirements.txt
+          pip install -r requirements.txt
       - name: Build all
-        run: python .github/workflows/utils/make.py build_all
+        run: python3 make.py build_all

@@ -14,7 +14,7 @@ Ccccccccccccccccccccccccccccccccccccccccccccccccccccccc
       Ran_Gauss = -6.0d0
 
       Do I=1,12
-         Ran_Gauss = Ran_Gauss + Ran_Uniform()
+         Ran_Gauss = Ran_Gauss + RAND()
       Enddo
  
       Return

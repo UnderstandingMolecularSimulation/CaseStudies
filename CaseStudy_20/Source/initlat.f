@@ -50,7 +50,7 @@ Cccccccccccccccccccccccccccccccccccccccccc
 
       Do I=1,(10*Nchain)
 
-         Ran = Ran_Uniform()
+         Ran = RAND()
 
          If(Ran.Lt.0.25d0) Then
             Call Mcmove(Move,Acc,Etot,Dx)

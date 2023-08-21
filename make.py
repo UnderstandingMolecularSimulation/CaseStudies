@@ -12,7 +12,7 @@ def clean_all():
     """Clean all makefiles.
     
     Example:
-        >>  python .github/workflows/utils/make.py clean_all
+        >>  python make.py clean_all
     """
     for makefile in get_all_targets():
         print(f"Cleaning {makefile}...")
@@ -22,11 +22,14 @@ def build_all():
     """Build all makefiles.
     
     Example:
-        >>  python .github/workflows/utils/make.py build_all
+        >>  python make.py build_all
     """
     for makefile in get_all_targets():
         print(f"Building {makefile}...")
-        subprocess.run(["make"], cwd=Path(makefile).parent)
+        completed_process = subprocess.run(["make"], cwd=Path(makefile).parent)
+        if completed_process.returncode != 0:
+            raise Exception(f"Failed to build {makefile}")
+        
 
 if __name__ == "__main__":
     fire.Fire()
