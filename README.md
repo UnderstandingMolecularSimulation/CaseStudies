@@ -59,6 +59,7 @@ Case Studies 19,20,21,22,23, and 24 have been written by Thijs J.H. Vlugt; Case 
 material about molecular simulations can be found on the web:
 http://molsim.chem.uva.nl/course/material.html -->
 
+The GitHub actions for this repository were fixed thanks to [@guacke](https://github.com/guacke).
 
 
 We have done our best to remove all errors from this document and the
