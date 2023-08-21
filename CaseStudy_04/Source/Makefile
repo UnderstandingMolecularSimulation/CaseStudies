@@ -18,11 +18,13 @@ HDRS	      =
  
 INSTALL	      = install
 
+LD = gfortran
+
 FC     = gfortran
 
 LDFLAGS	      = $(COMPFLAGS) # -l nag
 
-LIBS	      = -lgfortran -lquadmath -lm
+LIBS	      = 
 
 LINTLIBS      = 
 
