@@ -18,7 +18,9 @@ HDRS	      =
  
 INSTALL	      = install
 
-FC     = gfortran
+LD	      = gfortran
+
+FC = gfortran
 
 LDFLAGS	      = $(COMPFLAGS) # -l nag
 

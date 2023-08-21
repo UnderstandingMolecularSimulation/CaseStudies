@@ -18,7 +18,9 @@ HDRS	      =
  
 INSTALL	      = install
 
-LD	      = f77
+LD	      = gfortran
+
+FC = gfortran
 
 LDFLAGS	      = $(COMPFLAGS)
 

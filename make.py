@@ -25,7 +25,7 @@ def build_all():
         >>  python make.py build_all
     """
     for makefile in get_all_targets():
-        if any(word in makefile for word in ['CaseStudy_' + index for index in ['06', '10', '11', '19', '20', '21', '22', '23', '24', '25']]):
+        if any(word in makefile for word in ['CaseStudy_' + index for index in ['19', '20', '21', '22', '23', '24', '25']]):
             continue
         print(f"Building {makefile}...")
         completed_process = subprocess.run(["make"], cwd=Path(makefile).parent)
