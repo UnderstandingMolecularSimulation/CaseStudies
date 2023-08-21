@@ -8,7 +8,7 @@ on:
   push:
     branches:
       - main
-  pull-request:
+  pull_request:
 
 jobs:
   build:
@@ -23,7 +23,7 @@ jobs:
         run: sudo apt-get install gfortran
       - name: Install Fortran compiler macos
         if: matrix.os == 'macos-latest'
-        run: brew install gcc gfortran
+        run: brew reinstall gcc
       - name: Install Python
         uses: actions/setup-python@v1
         with:

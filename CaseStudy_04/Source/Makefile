@@ -22,7 +22,7 @@ FC     = gfortran
 
 LDFLAGS	      = $(COMPFLAGS) # -l nag
 
-LIBS	      = 
+LIBS	      = -lgfortran -lquadmath -lm
 
 LINTLIBS      = 
 
