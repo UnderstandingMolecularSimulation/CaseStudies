@@ -80,9 +80,9 @@ Cccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
                Zt(1) = Z(Ibead,Ichain)
             Else
                If(Ibead.Eq.1) Then
-                  Xt(Ichoi) = Ran_Uniform()*Box
-                  Yt(Ichoi) = Ran_Uniform()*Box
-                  Zt(Ichoi) = Ran_Uniform()*Box
+                  Xt(Ichoi) = RAND()*Box
+                  Yt(Ichoi) = RAND()*Box
+                  Zt(Ichoi) = RAND()*Box
 
                Elseif(Ibead.Eq.2) Then
 

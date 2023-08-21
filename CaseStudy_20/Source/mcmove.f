@@ -13,12 +13,12 @@ Cccccccccccccccccccccccccccccc
      &                 Xn(Ellmax),Yn(Ellmax),Zn(Ellmax),Dx,
      &                 Move,Acc
      
-      Ichain = Idint(Ran_Uniform()*Dble(Nchain)) + 1
+      Ichain = Idint(RAND()*Dble(Nchain)) + 1
       Move   = Move + 1.0d0
 
-      Bx     = (Ran_Uniform()-0.5d0)*Dx
-      By     = (Ran_Uniform()-0.5d0)*Dx
-      Bz     = (Ran_Uniform()-0.5d0)*Dx
+      Bx     = (RAND()-0.5d0)*Dx
+      By     = (RAND()-0.5d0)*Dx
+      Bz     = (RAND()-0.5d0)*Dx
       
       Do I = 1,Ell
          Xn(I) = X(I,Ichain)
@@ -42,7 +42,7 @@ Cccccccccccccccccccccccccccccc
 C     Check For Acceptance   C
 Cccccccccccccccccccccccccccccc
 
-      If (Ran_Uniform().Lt.Dexp(-Beta*(Ennew-Enold))) Then
+      If (RAND().Lt.Dexp(-Beta*(Ennew-Enold))) Then
          Acc   = Acc  + 1.0d0
          Etot  = Etot + Ennew - Enold
          

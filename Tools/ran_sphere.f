@@ -7,8 +7,8 @@ Cccccccccccccccccccccccccccccccccccccccc
 
       Double Precision Bx,By,Bz,Ran_Uniform,Ransq,Ranh
  
- 1    Bx    = 1.0d0 - 2.0d0*Ran_Uniform()
-      By    = 1.0d0 - 2.0d0*Ran_Uniform()
+ 1    Bx    = 1.0d0 - 2.0d0*RAND()
+      By    = 1.0d0 - 2.0d0*RAND()
       Ransq = Bx*Bx + By*By
       
       If(Ransq.Ge.1.0d0) Goto 1

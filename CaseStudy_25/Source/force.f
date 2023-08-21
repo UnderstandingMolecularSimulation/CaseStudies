@@ -27,10 +27,10 @@ C     Dirty Rng                          C
 C     Initialize Using A Better Rng      C
 Cccccccccccccccccccccccccccccccccccccccccc
 
-      Jran = 10 + Idint(Ran_Uniform()*100000.0d0)
+      Jran = 10 + Idint(RAND()*100000.0d0)
       Rim  = 1.0d0/139968.0d0
 
-      Do J=1,(10+Idint(Ran_Uniform()*100.0d0))
+      Do J=1,(10+Idint(RAND()*100.0d0))
          Jran = Mod(Jran*205+29573,139968)
       Enddo
 

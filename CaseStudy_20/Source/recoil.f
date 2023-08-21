@@ -58,7 +58,7 @@ Cccccccccccccccccccccccccccccc
             
                Do Iccc = 1,(Ndisp + Ncbmc)
             
-                  Ran = Ran_Uniform()*Dble(Ndisp+Ncbmc+Nrota)
+                  Ran = RAND()*Dble(Ndisp+Ncbmc+Nrota)
 
                   If (Ran.Le.Dble(Ncbmc)) Then
 

@@ -217,9 +217,9 @@ Cccccccccccccccccccccccccccccccccccccccc
                      Smolecule(Molecule) = Npart
                      Tmolecule(Molecule) = Ii
 
-                     Xx(Npart) = Ran_Uniform()*Boxlx
-                     Yy(Npart) = Ran_Uniform()*Boxly
-                     Zz(Npart) = Ran_Uniform()*Boxlz
+                     Xx(Npart) = RAND()*Boxlx
+                     Yy(Npart) = RAND()*Boxly
+                     Zz(Npart) = RAND()*Boxlz
                   Else
                      Call Ran_Sphere(X,Y,Z)
                      

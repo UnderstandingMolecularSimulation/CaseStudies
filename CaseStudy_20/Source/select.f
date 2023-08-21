@@ -29,7 +29,7 @@ Ccccccccccccccccccccccccccccccccccccccccccccccc
          Sumw     = Sumw + W(Ichoi)
       Enddo
  
-      Ws    = Ran_Uniform()*Sumw
+      Ws    = RAND()*Sumw
       Cumw  = W(1)
       Ichoi = 1
 

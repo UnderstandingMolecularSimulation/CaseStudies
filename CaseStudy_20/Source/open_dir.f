@@ -15,7 +15,7 @@ Cccccccccccccccccccccccccccccccccccccccccccccccccc
       P_Open = Min(1.0d0,Dexp(-Beta*Etot))
       Lopen  = .False.
 
-      If(Ran_Uniform().Lt.P_Open) Lopen = .True.
+      If(RAND().Lt.P_Open) Lopen = .True.
       
       Return
       End

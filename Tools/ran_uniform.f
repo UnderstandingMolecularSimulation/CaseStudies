@@ -3,7 +3,7 @@
         Integer Ijkl
 
 Ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
-C       This Is The Initialization Routine For Ran_Uniform()                  C
+C       This Is The Initialization Routine For RAND()                  C
 C       Note: The Seed Variable Should Be In The Range 0 <= 900 000 000       C
 Ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
 
@@ -58,7 +58,7 @@ Ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
         End
 
 
-        Function Ran_Uniform()
+        Function RAND()
         Implicit None
 
 Cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
