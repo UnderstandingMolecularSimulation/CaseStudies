@@ -27,6 +27,6 @@ jobs:
       - name: Install Python dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r .github/workflows/utils/requirements.txt
+          pip install -r requirements.txt
       - name: Build all
-        run: python .github/workflows/utils/make.py build_all
+        run: python3 make.py build_all

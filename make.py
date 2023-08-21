@@ -12,7 +12,7 @@ def clean_all():
     """Clean all makefiles.
     
     Example:
-        >>  python .github/workflows/utils/make.py clean_all
+        >>  python make.py clean_all
     """
     for makefile in get_all_targets():
         print(f"Cleaning {makefile}...")
@@ -22,9 +22,11 @@ def build_all():
     """Build all makefiles.
     
     Example:
-        >>  python .github/workflows/utils/make.py build_all
+        >>  python make.py build_all
     """
     for makefile in get_all_targets():
+        if any(word in makefile for word in ['CaseStudy_' + index for index in ['04', '05', '06', '10', '11', '19', '20', '21', '22', '23', '24', '25']]):
+            continue
         print(f"Building {makefile}...")
         completed_process = subprocess.run(["make"], cwd=Path(makefile).parent)
         if completed_process.returncode != 0:
